@@ -1,0 +1,40 @@
+.divRxNavbar {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 8px;
+    min-height: 40px;
+    color: var(--White);
+    background: var(--bgDarkest);
+    z-index: 96;
+}
+
+.divRxNavbar > * {
+    display: grid;
+    align-content: center;
+}
+
+.divNBLeft {
+    margin-left: 16px;
+    height: 100%;
+}
+
+.divNBLeft a {
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+.divNBCenter {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+.divNBRight {
+    margin-right: 16px;
+    justify-self: end;
+}
+
+.divNBRight:hover {
+    cursor: pointer;
+}

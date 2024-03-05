@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+#root { margin: 0; padding: 0; }
+
+/* Color Variables */
+:root {
+  --bgHoverDark: #101010;
+  --bgDarkest: #202020;
+  --bgDark: #303030;
+  --bgMedium: #444444;
+  --bgSecondary: #F5F5F5;
+  --bgContent_L: #F3F6F9;
+  --bgHover: #F7F8F9;
+  --bgHover_L: #FDFEFF;
+
+  --Selected_Dark: #3888FF;
+  --Selected: #D0E8FF;
+  --Selected_Light: #F0F8FF;
+  
+  --txtDark: #333333;
+  --txtMed: #808080;
+  --txtSec: #B3B3B3;
+  --txtTert: #C2C2C2;
+  --txtLinks: #2878E8;
+  
+  --brdr_D: #D0D0D0;
+  --brdr_X: #dadce0;
+  --brdr_M: #D8DCE0;
+  --brdr_L: #E6E6E6;
+  
+  --White: #FFFFFF;
+}
+
+/* Number Variables */
+:root {
+  --px128: 128px;
+  --px120: 120px;
+  --px112: 112px;
+  --px104: 104px;
+  --px96: 96px;
+  --px88: 88px;
+  --px80: 80px;
+  --px72: 72px;
+  --px64: 64px;
+  --px56: 56px;
+  --px48: 48px;
+  --px40: 40px;
+  --px32: 32px;
+  --px24: 24px;
+  --px16: 16px;
+  --px08: 08px;
+}
+
+/* Height and Width Variables */
+:root {
+  --hS: var(--px16);
+  --hM: var(--px24);
+  --hL: var(--px32);
+  --hX: var(--px40);
+  --lstH: var(--px48);
+}
+
+/* Corners */
+:root {
+  --crnrSmall: 4px;
+  --crnrMed: 6px;
+  --Corner: 8px;
+  --Large_Corner: 16px;
+}
+
+/* Typography */
+.f11 { font-size: 11px; font-weight: 400; }
+.f11M { font-size: 11px; font-weight: 500; }
+.f12 { font-size: 12px; font-weight: 400; }
+.f12M { font-size: 12px; font-weight: 500; }
+.f13 { font-size: 13px; font-weight: 400; }
+.f13M { font-size: 13px; font-weight: 500; }
+.f14 { font-size: 14px; font-weight: 400; }
+.f14M { font-size: 14px; font-weight: 500; }
+.f16 { font-size: 16px; font-weight: 400; }
+.f16M { font-size: 16px; font-weight: 500; }
+.f20M { font-size: 20px; font-weight: 500; }
+.f22M { font-size: 22px; font-weight: 500; }
+.f24M { font-size: 24px; font-weight: 500; }
+.f32 { font-size: 32px; }
+.f40 { font-size: 40px; }
+
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  /* color: var(--txtSec); */
+}
+
+/* Utility Classes */
+
+.clipText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.p24 { padding: 24px; }
+.w16 { width: 16px; } .h16 { height: 16px; } .wh16 { width: 16px; height: 16px; }
+.w24 { width: 24px; } .h24 { height: 24px; } .wh24 { width: 24px; height: 24px; }
+.w32 { width: 32px; } .h32 { height: 32px; } .wh32 { width: 32px; height: 32px; }
+.w40 { width: 40px; } .h40 { height: 40px; } .wh40 { width: 40px; height: 40px; }
+.w44 { width: 44px; } .h44 { height: 44px; } .wh44 { width: 44px; height: 44px; }
+.w48 { width: 48px; } .h48 { height: 48px; } .wh48 { width: 48px; height: 48px; }
+.w56 { width: 56px; } .h56 { height: 56px; } .wh56 { width: 56px; height: 56px; }
+.w64 { width: 64px; } .h64 { height: 64px; } .wh64 { width: 64px; height: 64px; }
+.w72 { width: 72px; } .h72 { height: 72px; } .wh72 { width: 72px; height: 72px; }
+.w80 { width: 80px; } .h80 { height: 80px; } .wh80 { width: 80px; height: 80px; }
+.w88 { width: 88px; } .h88 { height: 88px; } .wh88 { width: 88px; height: 88px; }
+.w96 { width: 96px; } .h96 { height: 96px; } .wh96 { width: 96px; height: 96px; }
+.w104 { width: 104px; } .h104 { height: 104px; } .wh104 { width: 104px; height: 104px; }
+.w112 { width: 112px; } .h112 { height: 112px; } .wh112 { width: 112px; height: 112px; }
+.w128 { width: 128px; } .h128 { height: 128px; } .wh128 { width: 128px; height: 128px; }
+.w160 { width: 160px; } .h160 { height: 160px; } .wh160 { width: 160px; height: 160px; }
+
+/* Other Generic Styles */
+.divShell {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  height: 100vh;
+  /* background-color: var(--bgHover_L); */
+}
