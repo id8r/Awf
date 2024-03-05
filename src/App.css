@@ -101,7 +101,8 @@
   text-overflow: ellipsis;
 }
 
-.p24 { padding: 24px; }
+/* Dimension classes */
+.w0 { width: 100%; } .h0 { height: 100%; } .wh0 { width: 100%; height: 100%; }
 .w16 { width: 16px; } .h16 { height: 16px; } .wh16 { width: 16px; height: 16px; }
 .w24 { width: 24px; } .h24 { height: 24px; } .wh24 { width: 24px; height: 24px; }
 .w32 { width: 32px; } .h32 { height: 32px; } .wh32 { width: 32px; height: 32px; }
@@ -118,6 +119,56 @@
 .w112 { width: 112px; } .h112 { height: 112px; } .wh112 { width: 112px; height: 112px; }
 .w128 { width: 128px; } .h128 { height: 128px; } .wh128 { width: 128px; height: 128px; }
 .w160 { width: 160px; } .h160 { height: 160px; } .wh160 { width: 160px; height: 160px; }
+
+/* Padding classes */
+.p0  { padding: 0;    } .pT0 { padding-top: 0; } .pR0 { padding-right: 0; } .pB0 { padding-bottom: 0; } .pL0 { padding-left: 0; }
+.p8  { padding: 8px;  } .pT8 { padding-top: 8px; } .pR8 { padding-right: 8px; } .pB8 { padding-bottom: 8px; } .pL8 { padding-left: 8px; }
+.p4  { padding: 4px;  } .pT4 { padding-top: 4px; } .pR4 { padding-right: 4px; } .pB4 { padding-bottom: 4px; } .pL4 { padding-left: 4px; }
+.p16 { padding: 16px; } .pT16 { padding-top: 16px; } .pR16 { padding-right: 16px; } .pB16 { padding-bottom: 16px; } .pL16 { padding-left: 16px; }
+.p24 { padding: 24px; } .pT24 { padding-top: 24px; } .pR24 { padding-right: 24px; } .pB24 { padding-bottom: 24px; } .pL24 { padding-left: 24px; }
+.p32 { padding: 32px; } .pT32 { padding-top: 32px; } .pR32 { padding-right: 32px; } .pB32 { padding-bottom: 32px; } .pL32 { padding-left: 32px; }
+.p40 { padding: 40px; } .pT40 { padding-top: 40px; } .pR40 { padding-right: 40px; } .pB40 { padding-bottom: 40px; } .pL40 { padding-left: 40px; }
+.p48 { padding: 48px; } .pT48 { padding-top: 48px; } .pR48 { padding-right: 48px; } .pB48 { padding-bottom: 48px; } .pL48 { padding-left: 48px; }
+.p56 { padding: 56px; } .pT56 { padding-top: 56px; } .pR56 { padding-right: 56px; } .pB56 { padding-bottom: 56px; } .pL56 { padding-left: 56px; }
+.p64 { padding: 64px; } .pT64 { padding-top: 64px; } .pR64 { padding-right: 64px; } .pB64 { padding-bottom: 64px; } .pL64 { padding-left: 64px; }
+
+/* - - - - - - - - - - - - - - - -  */
+
+/* Alignment classes */
+.aCenter { justify-content: center; align-items: center; }
+.aStart { align-items: flex-start; }
+.aEnd { align-items: flex-end; }
+
+/* Horizontal alignment */
+.aHCenter { display: flex; justify-content: center; }
+.aHStart { justify-content: flex-start; }
+.aHEnd { justify-content: flex-end; }
+
+/* Vertical alignment */
+.aVCenter { display: flex; align-items: center; }
+.aVStart { align-items: flex-start; }
+.aVEnd { align-items: flex-end; }
+
+/* - - - - - - - - - - - - - - - -  */
+
+/* Flexbox grid */
+.Flx { display: flex; }
+.Flx1 { flex: 1; }
+.FlxRow { flex-direction: row; }
+.FlxColumn { flex-direction: column; }
+.FlxCenter { justify-content: center; align-items: center; }
+.FlxSpaceBetween { justify-content: space-between; }
+
+/* CSS Grid */
+.Grd { display: grid; }
+.Grd2Cols { grid-template-columns: repeat(2, 1fr); }
+.Grd3Cols { grid-template-columns: repeat(3, 1fr); }
+.Grd4Cols { grid-template-columns: repeat(4, 1fr); }
+.GrdR2ows { grid-template-rows: repeat(2, 1fr); }
+.Grd3Rows { grid-template-rows: repeat(3, 1fr); }
+.Grd4Rows { grid-template-rows: repeat(4, 1fr); }
+
+/* - - - - - - - - - - - - - - - -  */
 
 /* Other Generic Styles */
 .divShell {

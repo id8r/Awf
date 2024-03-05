@@ -1,0 +1,39 @@
+/* CSS for FxNavMenu - Sree 13 Feb 2024 */
+
+.divNavMenuList {
+    /* display: grid; */
+    display: flex;
+    box-sizing: border-box;
+    /* padding: 24px 0; */
+    flex-direction: column;
+}
+
+.divNavMenu {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--White);
+}
+
+.divNavMenu-item {
+    display: flex;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: var(--bgHoverDark);
+    height: var(--lstH);
+    padding: 0 16px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.divNavMenu-item:hover {
+    background-color: var(--bgHover);
+    box-shadow: inset -4px 0 0 #3888FF80;
+}
+
+.divNavMenu-item.selected {
+    background-color: var(--bgSecondary);
+    box-shadow: inset -4px 0 0 var(--Selected_Dark);
+}
+
+/* - - - - - - - - - - - - - - - -  */

@@ -1,9 +1,13 @@
+/* App | Sree | 01 Mar 2024 */
 
 import React, { useState } from 'react';
+import { Link, Outlet } from "react-router-dom";
 import './App.css';
 import FxNavbar from './Fx/Nav/FxNavbar';
 import FxDrawer from './Fx/Utils/FxDrawer';
-import {loremIpsum} from './Fx/Feed/FxProps';
+import FxSidebar from './Fx/Nav/FxSidebar';
+import { loremIpsum } from './Fx/Feed/FxProps';
+
 
 function App() {
   const useFxDrawer = ({ initialIsOpen = false, ...drawerProps }) => {
@@ -17,29 +21,18 @@ function App() {
     <>
       <FxNavbar />
       <div className="divShell">
-      <div>
-                <button onClick={toggleDrawer}>Open Drawer</button>
-                <FxDrawer
-                  Width='40%'
-                  maskFade={0}
-                  isOpen={drawerIsOpen}
-                  onClose={toggleDrawer}
-                >
-                  <FxNavbar />
-                  <button>Some Button</button>
-                  <button closeDrawer="true">Close Drawer</button>
-  <button>Another Button</button>
-                  <div className='p24'>
-                  {loremIpsum}
-                  {loremIpsum}
-                  {loremIpsum}
-                  {loremIpsum}
-                  {loremIpsum}
-                  {loremIpsum}
-                  {loremIpsum}
-                  </div>
-                </FxDrawer>
-              </div>
+        <FxSidebar />
+        <div className="divContent"
+        style={{ backgroundColor: 'pink' }}>
+          {/* <Outlet /> /* Render child routes here */}
+          {<Outlet /> || <div>No Page Found!</div>}
+          <div>
+            {/* <FxNavbar /> */}
+            <Link to="/login" style={{ textDecoration: 'none', color: 'inherit' }}>
+              Go to Login
+            </Link>
+          </div>
+        </div>
       </div>
     </>
   );
