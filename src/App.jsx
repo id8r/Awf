@@ -22,15 +22,13 @@ function App() {
       <FxNavbar />
       <div className="divShell">
         <FxSidebar />
-        <div className="divContent"
-        style={{ backgroundColor: 'pink' }}>
+        <div className="divContent" >
           {/* <Outlet /> /* Render child routes here */}
           {<Outlet /> || <div>No Page Found!</div>}
           <div>
-            {/* <FxNavbar /> */}
-            <Link to="/login" style={{ textDecoration: 'none', color: 'inherit' }}>
-              Go to Login
-            </Link>
+            {/* <Link to="/login" >
+              Go to Login (app)
+            </Link> */}
           </div>
         </div>
       </div>

@@ -85,7 +85,6 @@
 .f32 { font-size: 32px; }
 .f40 { font-size: 40px; }
 
-
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -100,6 +99,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.txtPlain { text-decoration: none; color: inherit; }
 
 /* Dimension classes */
 .w0 { width: 100%; } .h0 { height: 100%; } .wh0 { width: 100%; height: 100%; }

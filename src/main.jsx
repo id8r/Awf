@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App.jsx';
+import PgDashboard from './Fx/A/PgDashboard.jsx';
 import PgDesign from './Fx/A/PgDesign.jsx';
 import NotFound from './Fx/A/NotFound.jsx';
 import './index.css';
@@ -13,9 +14,13 @@ import {
 const router = createBrowserRouter([
   {
     path: "/",
-    errorElement: <NotFound />,
     element: <App />,
     children: [
+      {
+        path: "dashboard",
+        element: <PgDashboard />,
+        errorElement: <NotFound />,
+      },
       {
         path: "designs",
         element: <PgDesign />,
@@ -26,7 +31,6 @@ const router = createBrowserRouter([
   {
     path: "*",
     element: <NotFound />,
-    errorElement: <NotFound />,
   },
 ]);
 
