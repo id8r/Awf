@@ -1,6 +1,7 @@
 /* FxDrawer | Sree | 01 mar 2024 */
 
 import React, { useEffect, useRef } from 'react';
+import ReactDOM from 'react-dom'; // Import ReactDOM for creating portals
 import './FxDrawer.css';
 
 const FxDrawer = ({
@@ -47,10 +48,13 @@ const FxDrawer = ({
   }, [isOpen]);
 
   const handleContentButtonClick = (e) => {
-    if (e.target.getAttribute('closeDrawer') === "true") { onClose(); } // Close the drawer when button inside content is clicked and has closeDrawer="true"
+    if (e.target.getAttribute('closeDrawer') === "true") {
+      onClose();
+    }
   };
 
-  return (
+  // Create a portal for rendering the fx-drawer directly to the document body
+  return ReactDOM.createPortal(
     <div className={`fx-drawer ${isOpen ? 'open' : 'closed'}`} ref={drawerRef}>
       <div
         className="fxdOverlay"
@@ -67,8 +71,8 @@ const FxDrawer = ({
           width: trayWidth,
           backgroundColor: bgColor,
           transform: `translateX(${isOpen ? '0' : '100%'})`,
-          boxShadow: isOpen ? '0 0 10px rgba(0, 0, 0, 0.5)' : 'none', // Apply shadow only when the drawer is open
-          transition: `transform ${openSpeed} ease, box-shadow ${openSpeed} ease` // Add transition for box-shadow
+          boxShadow: isOpen ? '0 0 10px rgba(0, 0, 0, 0.5)' : 'none',
+          transition: `transform ${openSpeed} ease, box-shadow ${openSpeed} ease`
         }}
       >
         {React.Children.map(children, child => {
@@ -80,7 +84,8 @@ const FxDrawer = ({
           return child;
         })}
       </div>
-    </div>
+    </div>,
+    document.body // Render the portal to the document body
   );
 };
 
