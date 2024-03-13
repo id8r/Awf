@@ -1,0 +1,32 @@
+/* FlexDrawer Styles | 13 Mar 2024 */
+
+.fxdOverlay,
+.drawerContent {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  z-index: 1000;
+  transition: all 0.15s ease;
+}
+
+.fxdOverlay {
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.drawerContent {
+  /* box-shadow: -4px 0 8px rgba(0, 0, 0, 0.25); */
+  transform: translateX(100%);
+  overflow-y: auto;
+}
+
+.fx-drawer.open .fxdOverlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.fx-drawer.open .drawerContent { transform: translateX(0); }  /* Open state transform */

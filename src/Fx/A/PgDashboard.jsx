@@ -1,68 +1,24 @@
-// /* PgDashboard | Sree | 12 Mar 2024 */
-
-// import React, { useState } from 'react';
-// import FxDrawer from '../Utils/FxDrawer';
-// import FxHeaderbar from '../Nav/FxHeaderbar';
-
-// const PgDashboard = () => {
-//   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
-//   const toggleDrawer = () => setDrawerIsOpen(!drawerIsOpen);
-
-//   return (
-//     <>
-//       <div className='p24'>
-//         <button onClick={toggleDrawer}>Toggle Drawer</button>
-//         <FxDrawer
-//           bgSpread='50%'
-//           maskFade='25%'
-//           closeOnEsc={true}
-//           isOpen={drawerIsOpen}
-//           onClose={toggleDrawer}
-//           // bgColor='var(--bgContent_L)'
-//         >
-//           <FxHeaderbar
-//             title="Dashboard Page"
-//             height='var(--hX)'
-//             textColor='var(--White)'
-//             bgColor='var(--bgDark)'
-//             showBackIcon={false}
-//             onClose={toggleDrawer}
-//           />
-//           {/* Page Content here */}
-//           <div className='p24 f14'>
-//             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad, aperiam neque laborum magnam labore quasi commodi dolores amet unde temporibus inventore exercitationem. Fugit tempora et tempore voluptate! Tempora, dolorum iure.</div>
-//         </FxDrawer>
-//       </div>
-//     </>
-//   );
-// }
-
-// export default PgDashboard;
+/* PgDashboard | Sree | 12 Mar 2024 */
 
 import React, { useState } from 'react';
-import FxDrawer from '../Utils/FxDrawer';
-import FxHeaderbar from '../Nav/FxHeaderbar';
+import FlexDrawer from '../Utils/FlexDrawer';
+import FxHeaderbar from '../Nav/FxHeaderbar'; // Import the appropriate header component
 
 const PgDashboard = () => {
-  const [drawerIsOpen, setDrawerIsOpen] = useState(false); // Initially closed
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false); // Initially closed
 
-  const toggleDrawer = () => setDrawerIsOpen(!drawerIsOpen);
+  const toggleDrawer = () => setIsDrawerOpen(!isDrawerOpen);
 
   return (
     <>
       <div className='p24'>
-        <button onClick={toggleDrawer}>Toggle Drawer</button>
-        <FxDrawer
-          trayWidth='50%'
-          openSpeed='0.15s'
-          maskFade='25%'
-          closeOnEsc={false}
-          isOpen={drawerIsOpen} // Controlled by state
-          onClose={toggleDrawer}
-          // bgColor='var(--bgContent_L)'
+        <button onClick={toggleDrawer}>Show Drawer</button>
+        <FlexDrawer
+          isOpen={isDrawerOpen}
+          onClose={() => setIsDrawerOpen(false)}
         >
           <FxHeaderbar
-            title="Dashboard Page"
+            title="FxHeaderbar's Title"
             height='var(--hX)'
             textColor='var(--White)'
             bgColor='var(--bgDark)'
@@ -71,11 +27,12 @@ const PgDashboard = () => {
           />
           {/* Page Content here */}
           <div className='p24 f14'>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad, aperiam neque laborum magnam labore quasi commodi dolores amet unde temporibus inventore exercitationem. Fugit tempora et tempore voluptate! Tempora, dolorum iure.</div>
-        </FxDrawer>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad, aperiam neque laborum magnam labore quasi commodi dolores amet unde temporibus inventore exercitationem. Fugit tempora et tempore voluptate! Tempora, dolorum iure.
+          </div>
+        </FlexDrawer>
       </div>
     </>
   );
-}
+};
 
 export default PgDashboard;

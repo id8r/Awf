@@ -1,24 +1,25 @@
-/* FxDrawer | Sree | 01 mar 2024 */
+/* FlexDrawer | Sree | 01 mar 2024 */
 
 import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom'; // Import ReactDOM for creating portals
-import './FxDrawer.css';
+import './FlexDrawer.css';
 
-const FxDrawer = ({
-  trayWidth = '600px',
+const FlexDrawer = ({
+  trayWidth = '50%', // '600px',
   maskFade = 0.15,
   openSpeed = '0.15s',
   closeOnEsc = true,
   bgColor = 'var(--White)',
   isOpen,
   onClose,
+  anchor = 'right',
   children,
 }) => {
   const drawerRef = useRef();
 
   useEffect(() => {
     const handleEscapeKeyPress = (event) => {
-      if (event.key === 'Escape' && closeOnEsc && isOpen) {
+      if (closeOnEsc && isOpen && event.key === 'Escape') {
         onClose();
       }
     };
@@ -34,6 +35,8 @@ const FxDrawer = ({
       document.addEventListener('mousedown', handleClickOutside);
       document.body.style.overflow = 'hidden';
     } else {
+      document.removeEventListener('keydown', handleEscapeKeyPress);
+      document.removeEventListener('mousedown', handleClickOutside);
       document.body.style.overflow = 'auto';
     }
 
@@ -43,15 +46,19 @@ const FxDrawer = ({
     };
   }, [isOpen, onClose, closeOnEsc]);
 
-  useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
-  }, [isOpen]);
-
-  const handleContentButtonClick = (e) => {
-    if (e.target.getAttribute('closeDrawer') === "true") {
-      onClose();
-    }
+  const handleOverlayClick = () => {
+    onClose();
   };
+
+  // Determine the transform value based on the anchor
+  const transformValue = isOpen ? '0' : anchor === 'left' ? '-100%' : '100%';
+
+  // Determine the box-shadow based on the anchor
+  const boxShadow = isOpen ? (anchor === 'left' ? '4px' : '-4px') + ' 0 8px rgba(0, 0, 0, 0.25)' : 'none';
+
+  // Adjust left and right for the anchor
+  const leftValue = anchor === 'left' ? 0 : 'auto';
+  const rightValue = anchor === 'right' ? 0 : 'auto';
 
   // Create a portal for rendering the fx-drawer directly to the document body
   return ReactDOM.createPortal(
@@ -60,9 +67,9 @@ const FxDrawer = ({
         className="fxdOverlay"
         style={{
           backgroundColor: `rgba(0, 0, 0, ${isOpen ? maskFade : 0})`,
-          transition: `opacity ${openSpeed} ease`
+          transition: `opacity ${openSpeed} ease`,
         }}
-        onClick={closeOnEsc && onClose}
+        onClick={closeOnEsc ? handleOverlayClick : undefined}
       />
 
       <div
@@ -70,23 +77,24 @@ const FxDrawer = ({
         style={{
           width: trayWidth,
           backgroundColor: bgColor,
-          transform: `translateX(${isOpen ? '0' : '100%'})`,
-          boxShadow: isOpen ? '0 0 10px rgba(0, 0, 0, 01.5)' : 'none',
-          transition: `transform ${openSpeed} ease, box-shadow ${openSpeed} ease`
+          transform: `translateX(${transformValue})`, // Use transformValue here
+          boxShadow: boxShadow, // Use boxShadow here
+          transition: `transform ${openSpeed} ease, box-shadow ${openSpeed} ease`,
+          left: leftValue,
+          right: rightValue,
         }}
       >
-        {React.Children.map(children, child => {
-          if (React.isValidElement(child)) {
-            return React.cloneElement(child, {
-              onClick: handleContentButtonClick
-            });
-          }
-          return child;
-        })}
+        {React.Children.map(children, (child) =>
+          React.isValidElement(child) ? (
+            React.cloneElement(child, { onClose })
+          ) : (
+            child
+          )
+        )}
       </div>
     </div>,
     document.body // Render the portal to the document body
   );
 };
 
-export default FxDrawer;
+export default FlexDrawer;
