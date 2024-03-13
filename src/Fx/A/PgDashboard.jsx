@@ -53,7 +53,7 @@ const PgDashboard = () => {
       <div className='p24'>
         <button onClick={toggleDrawer}>Toggle Drawer</button>
         <FxDrawer
-          bgSpread='50%'
+          trayWidth='50%'
           maskFade='25%'
           closeOnEsc={true}
           isOpen={drawerIsOpen} // Controlled by state

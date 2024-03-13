@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import './FxDrawer.css';
 
 const FxDrawer = ({
-  bgSpread = '600px',
+  trayWidth = '600px',
   maskFade = 0.15,
   openSpeed = '0.15s',
   closeOnEsc = true,
@@ -64,7 +64,7 @@ const FxDrawer = ({
       <div
         className="drawerContent"
         style={{
-          width: bgSpread,
+          width: trayWidth,
           backgroundColor: bgColor,
           transform: `translateX(${isOpen ? '0' : '100%'})`,
           boxShadow: isOpen ? '0 0 10px rgba(0, 0, 0, 0.5)' : 'none', // Apply shadow only when the drawer is open
