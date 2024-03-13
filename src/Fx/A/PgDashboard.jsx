@@ -56,7 +56,7 @@ const PgDashboard = () => {
           trayWidth='50%'
           openSpeed='0.15s'
           maskFade='25%'
-          closeOnEsc={true}
+          closeOnEsc={false}
           isOpen={drawerIsOpen} // Controlled by state
           onClose={toggleDrawer}
           // bgColor='var(--bgContent_L)'
