@@ -13,7 +13,6 @@ const FxDrawer = ({
   onClose,
   children,
 }) => {
-
   const drawerRef = useRef();
 
   useEffect(() => {
@@ -48,9 +47,7 @@ const FxDrawer = ({
   }, [isOpen]);
 
   const handleContentButtonClick = (e) => {
-    if (e.target.getAttribute('closeDrawer') === "true") {
-      onClose(); // Close the drawer when button inside content is clicked and has closeDrawer="true"
-    }
+    if (e.target.getAttribute('closeDrawer') === "true") { onClose(); } // Close the drawer when button inside content is clicked and has closeDrawer="true"
   };
 
   return (
@@ -70,7 +67,8 @@ const FxDrawer = ({
           width: bgSpread,
           backgroundColor: bgColor,
           transform: `translateX(${isOpen ? '0' : '100%'})`,
-          transition: `transform ${openSpeed} ease`
+          boxShadow: isOpen ? '0 0 10px rgba(0, 0, 0, 0.5)' : 'none', // Apply shadow only when the drawer is open
+          transition: `transform ${openSpeed} ease, box-shadow ${openSpeed} ease` // Add transition for box-shadow
         }}
       >
         {React.Children.map(children, child => {

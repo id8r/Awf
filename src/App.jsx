@@ -14,7 +14,7 @@ function App() {
       <FxNavbar />
       <div className="divShell">
         <FxSidebar
-          selectOnLoad={0}
+          selectOnLoad={2}
         />
         <div className="divContent" >
           <Outlet /> {/* Render child routes here */}
