@@ -79,6 +79,7 @@
 .f14M { font-size: 14px; font-weight: 500; }
 .f16 { font-size: 16px; font-weight: 400; }
 .f16M { font-size: 16px; font-weight: 500; }
+.f20 { font-size: 20px; font-weight: 400; }
 .f20M { font-size: 20px; font-weight: 500; }
 .f22M { font-size: 22px; font-weight: 500; }
 .f24M { font-size: 24px; font-weight: 500; }
@@ -149,6 +150,13 @@
 .aVCenter { display: flex; align-items: center; }
 .aVStart { align-items: flex-start; }
 .aVEnd { align-items: flex-end; }
+
+/* Border classes */
+.bA { border: 1px solid var(--brdr_D); }
+.bL { border-left: 1px solid var(--brdr_D); }
+.bT { border-top: 1px solid var(--brdr_D); }
+.bR { border-right: 1px solid var(--brdr_D); }
+.bB { border-bottom: 1px solid var(--brdr_D); }
 
 /* - - - - - - - - - - - - - - - -  */
 

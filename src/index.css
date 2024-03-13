@@ -12,4 +12,5 @@ body {
   padding: 0;
   background-color: var(--White);
   box-sizing: border-box;
+  color: var(--txtDark);
 }

@@ -4,8 +4,9 @@ import React, { useEffect, useRef } from 'react';
 import './FxDrawer.css';
 
 const FxDrawer = ({
-  Width = '600px',
+  bgSpread = '600px',
   maskFade = 0.15,
+  openSpeed = '0.15s',
   closeOnEsc = true,
   bgColor = 'var(--White)',
   isOpen,
@@ -54,16 +55,24 @@ const FxDrawer = ({
 
   return (
     <div className={`fx-drawer ${isOpen ? 'open' : 'closed'}`} ref={drawerRef}>
-      <div className="fxdOverlay"
-        style={{ backgroundColor: `rgba(0, 0, 0, ${isOpen ? maskFade : 0})` }}
+      <div
+        className="fxdOverlay"
+        style={{
+          backgroundColor: `rgba(0, 0, 0, ${isOpen ? maskFade : 0})`,
+          transition: `opacity ${openSpeed} ease`
+        }}
         onClick={closeOnEsc && onClose}
       />
 
       <div
         className="drawerContent"
-        style={{ width: Width, backgroundColor: bgColor, transform: `translateX(${isOpen ? '0' : '100%'})` }}
+        style={{
+          width: bgSpread,
+          backgroundColor: bgColor,
+          transform: `translateX(${isOpen ? '0' : '100%'})`,
+          transition: `transform ${openSpeed} ease`
+        }}
       >
-        <button onClick={onClose}>Close Drawer</button>
         {React.Children.map(children, child => {
           if (React.isValidElement(child)) {
             return React.cloneElement(child, {

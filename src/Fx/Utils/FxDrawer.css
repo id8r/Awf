@@ -1,33 +1,30 @@
+/* FxDrawer | Sree | 01 Mar 2024 */
+
 .fxdOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 80%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0); /* Initial background color */
-    opacity: 0; /* Default state, hidden */
-    transition: opacity 0.25s ease; /* Transition for opacity */
-    pointer-events: none; /* By default, don't capture mouse events */
-    z-index: 1000; /* Ensure it's above other elements */
-  }
-  
-  .drawerContent {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100%;
-    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.25);
-    transform: translateX(100%);
-    transition: transform 0.25s ease;
-    z-index: 1001;
-    overflow-y: auto;
-  }
-  
-  .fx-drawer.open .fxdOverlay {
-    opacity: 1;
-    pointer-events: auto; /* Capture mouse events when drawer is open */
-  }
-  
-  .fx-drawer.open .drawerContent {
-    transform: translateX(0); /* Move into view when drawer is open */
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.drawerContent {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.25);
+  transform: translateX(100%);
+  transition: transform 0.15s ease;
+  z-index: 1001;
+  overflow-y: auto;
+}
+
+.fx-drawer.open .fxdOverlay { opacity: 1; pointer-events: auto; }
+
+.fx-drawer.open .drawerContent { transform: translateX(0); }
